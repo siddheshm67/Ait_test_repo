@@ -1,5 +1,15 @@
 package com.management.app.Repo;
 
-public interface UserRepo {
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.management.app.Entity.User;
+
+@Repository
+public interface UserRepo extends JpaRepository<User, Integer> {
+	
+	public User findByEmail(String email);
 
 }
