@@ -16,7 +16,7 @@ public class City {
 	
 	private String cityName;
 	
-	private String stateID;
+	private Integer stateID;
 
 	public Integer getCityID() {
 		return cityID;
@@ -34,13 +34,17 @@ public class City {
 		this.cityName = cityName;
 	}
 
-	public String getStateID() {
+	public Integer getStateID() {
 		return stateID;
 	}
 
-	public void setStateID(String stateID) {
+	public void setStateID(Integer stateID) {
 		this.stateID = stateID;
 	}
+	
+	
+
+	
 	
 	
 

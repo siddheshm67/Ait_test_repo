@@ -14,16 +14,39 @@
   
   <div class="container">
 	  
-	  <h1>Quote</h1>
+	  <h1>Login here</h1>
 	  
 	 
-		  <p th:text="${quote}"></p>
-		  
-		  <a href="dasboard" class="btn btn-primary">get new quote</a>
+		  <p th:text="${errmsg}"></p>
 	
 	  
+	  <form action="login" th:object="${loginform}" method="post">
+		  <table>
+			  
+			 <tr>
+				 <td>Email: </td>
+				 <td><input type="email" th:field="*{email}" required></td>
+			 </tr>
+			 
+			 <tr>
+				 <td>Password: </td>
+				 <td><input type="password" th:field="*{password}" required></td>
+			 </tr>
+			 
+			 <tr>
+				 <td></td>
+				 <td><input type="submit" value="Login" class="btn btn-primary"></td>
+			 </tr>
+			  
+		  </table>
+	  </form> 
+	  
+	  <a href="register">register here</a>
+	  <a href="forgot-pwd">forgot password ?</a>
 	  
 	  </div>
+
+
 
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

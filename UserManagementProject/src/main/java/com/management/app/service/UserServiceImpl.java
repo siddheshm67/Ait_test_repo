@@ -4,6 +4,7 @@ import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.BeanUtils;
@@ -21,6 +22,7 @@ import com.management.app.Repo.CityRepo;
 import com.management.app.Repo.CountryRepo;
 import com.management.app.Repo.StateRepo;
 import com.management.app.Repo.UserRepo;
+import com.management.app.utils.EmailUtil;
 
 import ch.qos.logback.core.joran.util.beans.BeanUtil;
 
@@ -38,6 +40,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserRepo userRepo;
+	
+	@Autowired
+	EmailUtil emailUtil;
 
 	@Override
 	public Map<Integer, String> getCountries() {
@@ -77,7 +82,10 @@ public class UserServiceImpl implements UserService {
 		User user = new User();
 		BeanUtils.copyProperties(registerForm, user);
 		userRepo.save(user);
-		return false;
+		
+		String subject = "Your account created";
+		String body = "your password : "+ registerForm.getPassword();
+		return emailUtil.sendMail(subject,body,registerForm.getEmail());
 	}
 
 	private String generateRandonPwd() {
@@ -88,20 +96,22 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User loginUSer(LoginForm loginForm) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = userRepo.findByEmailAndPassword(loginForm.getEmail(), loginForm.getPassword());
+		return user;
 	}
 
 	@Override
-	public User resetPwd(ResetPwdForm resetPwdForm) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String generatePwd() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean resetPwd(ResetPwdForm resetPwdForm) {
+		Optional<User> optional = userRepo.findById(resetPwdForm.getUserID());
+		
+		if (optional.isPresent()) {
+			User user = optional.get();
+			user.setPassword(resetPwdForm.getPwd());
+			user.setPwdUpdated("YES");
+			userRepo.save(user);
+			return true;
+		}
+		return false;
 	}
 
 }

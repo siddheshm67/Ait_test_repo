@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.management.app.Entity.State;
 
-@Repository
 public interface StateRepo extends JpaRepository<State, Integer>{
 	
 	public List<State> findByCountryID(Integer countryID);

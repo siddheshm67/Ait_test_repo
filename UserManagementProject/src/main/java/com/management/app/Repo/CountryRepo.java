@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.management.app.Entity.Country;
 
-@Repository
+
 public interface CountryRepo extends JpaRepository<Country, Integer> {
 
 }

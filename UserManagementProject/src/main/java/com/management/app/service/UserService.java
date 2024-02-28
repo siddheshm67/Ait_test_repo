@@ -9,7 +9,7 @@ import com.management.app.Bindings.RegisterForm;
 import com.management.app.Bindings.ResetPwdForm;
 import com.management.app.Entity.User;
 
-@Service
+
 public interface UserService {
 	
 	public Map<Integer, String> getCountries();
@@ -18,7 +18,7 @@ public interface UserService {
 	public User getUser(String email);
 	public boolean saveUser(RegisterForm registerForm);
 	public User loginUSer(LoginForm loginForm);
-	public User resetPwd(ResetPwdForm resetPwdForm);
-	public String generatePwd();
+	public boolean resetPwd(ResetPwdForm resetPwdForm);
+
 	
 }

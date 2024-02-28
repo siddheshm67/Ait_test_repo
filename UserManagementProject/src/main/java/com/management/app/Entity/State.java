@@ -16,7 +16,7 @@ public class State {
 	
 	private String stateName;
 	
-	private String countryID;
+	private Integer countryID;
 
 	public Integer getStateID() {
 		return stateID;
@@ -34,13 +34,15 @@ public class State {
 		this.stateName = stateName;
 	}
 
-	public String getCountryID() {
+	public Integer getCountryID() {
 		return countryID;
 	}
 
-	public void setCountryID(String countryID) {
+	public void setCountryID(Integer countryID) {
 		this.countryID = countryID;
 	}
+
+	
 	
 	
 }
