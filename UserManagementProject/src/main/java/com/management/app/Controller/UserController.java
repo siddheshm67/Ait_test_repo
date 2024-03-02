@@ -8,87 +8,125 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.management.app.Bindings.LoginForm;
 import com.management.app.Bindings.RegisterForm;
 import com.management.app.Bindings.ResetPwdForm;
 import com.management.app.Entity.User;
+import com.management.app.Repo.CountryRepo;
 import com.management.app.service.UserService;
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	private UserService userService;
 	
+	private CountryRepo countryRepo;
+
 	@GetMapping("/")
 	public String index(Model model) {
-		model.addAttribute("loginform",new LoginForm());
+		model.addAttribute("loginform", new LoginForm());
 		return "index";
 	}
-	
+
 	@PostMapping("/login")
-	public String loginCheck(@ModelAttribute("loginform") LoginForm loginForm,Model model) {
+	public String loginCheck(@ModelAttribute("loginform") LoginForm loginForm, Model model) {
 		User user = userService.loginUSer(loginForm);
 		if (user == null) {
-			model.addAttribute("errmsg","invalid credentials");
+			model.addAttribute("errmsg", "invalid credentials");
 			return "index";
 		}
-		
+
 		if (user.getPwdUpdated().equals("NO")) {
 			ResetPwdForm resetPwdForm = new ResetPwdForm();
 			resetPwdForm.setUserID(user.getUserID());
-			model.addAttribute("resetPwd",resetPwdForm);
+			model.addAttribute("resetPwd", resetPwdForm);
 			return "resetPwd";
 		}
-		
+
 		return "redirect:dasboard";
 	}
-	
-	public String register(Model model) {
-		
-		return null;
-	}
-	
+
 	@PostMapping("/updatePwd")
-	public String resetPwd(ResetPwdForm resetPwdForm, Model model) {
+	public String resetPwd(@ModelAttribute("resetPwd") ResetPwdForm resetPwdForm, Model model) {
+
+		if (!resetPwdForm.getPwd().equals(resetPwdForm.getConfirmPwd())) {
+			model.addAttribute("errmsg", "both password should match");
+			return "resetPwd";
+		}
+
 		boolean resetPwdStatus = userService.resetPwd(resetPwdForm);
 		if (resetPwdStatus) {
-			return "redirect:dashbaord";
+			return "redirect:dasboard";
 		}
-		model.addAttribute("errmsg","password update faild");
+
+		model.addAttribute("errmsg", "ERROR !!!");
 		return "resetPwd";
+
 	}
+
+	/*
+	 * @ResponseBody
+	 * 
+	 * @GetMapping("/states") public Map<Integer, String>
+	 * loadStates(@RequestParam("countryID") Integer cid) {
+	 * 
+	 * return userService.getStates(cid); }
+	 * 
+	 * 
+	 * @ResponseBody
+	 * 
+	 * @GetMapping("/cities") public Map<Integer, String>
+	 * loadCities(@RequestParam("stateID") Integer sid) {
+	 * 
+	 * return userService.getStates(sid); }
+	 */
 	
+	@GetMapping("/register")
+	public String register(Model model) {
+		model.addAttribute("registerForm", new RegisterForm());
+		Map<Integer,String> countries = userService.getCountries();
+		model.addAttribute("countries",countries);
+		Map<Integer,String> states = userService.getStates();
+		model.addAttribute("states",states);
+		Map<Integer,String> cities = userService.getCities();
+		model.addAttribute("cities",cities);
+		return "register";
+	}
+
+	@PostMapping("/registeruser")
+	public String userRegister(@ModelAttribute("registerForm") RegisterForm registerForm, Model model) {
 	
-	public Map<Integer, String> loadStates(Integer cid){
+		boolean user = userService.saveUser(registerForm);
+		if (user) {
+			model.addAttribute("sucmsg", "registration successful,please check mail");
+		}else {
+			model.addAttribute("errmsg", "registraction faild");
+		}
 		
+		model.addAttribute("registerForm", new RegisterForm());
+		Map<Integer,String> countries = userService.getCountries();
+		model.addAttribute("countries",countries);
+		Map<Integer,String> states = userService.getStates();
+		model.addAttribute("states",states);
+		Map<Integer,String> cities = userService.getCities();
+		model.addAttribute("cities",cities);
+		
+		
+		return "register";
+	}
+
+	public String updatePwd(ResetPwdForm resetPwdForm, Model model) {
+
 		return null;
 	}
-	
-	
-	public Map<Integer, String> loadCities(Integer sid){
-		
-		return null;
-	}
-	
-	
-	public String userRegister(RegisterForm registerForm,Model model) {
-		
-		return null;
-	}
-	
-	public String updatePwd(ResetPwdForm resetPwdForm,Model model) {
-		
-		return null;
-	}
-	
+
 	public String logout(Model model) {
-	
+
 		return null;
 	}
-	
-	
-	
 
 }

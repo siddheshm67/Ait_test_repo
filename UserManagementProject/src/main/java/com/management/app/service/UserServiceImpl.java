@@ -51,22 +51,38 @@ public class UserServiceImpl implements UserService {
 	    countryList.forEach(c -> countryMap.put(c.getCountryID(), c.getCountryName()));
 	    return countryMap;
 	}
-
+	
 	@Override
-	public Map<Integer, String> getStates(Integer countryID) {
+	public Map<Integer, String> getStates() {
 		HashMap<Integer, String> stateMap = new HashMap<>();
-		List<State> stateList = stateRepo.findByCountryID(countryID);
-		stateList.forEach(s -> stateMap.put(s.getStateID(), s.getStateName()));
+		List<State> stateList = stateRepo.findAll();
+	    stateList.forEach(c -> stateMap.put(c.getStateID(), c.getStateName()));
 		return stateMap;
 	}
 
+
+
 	@Override
-	public Map<Integer, String> getCity(Integer stateID) {
-		HashMap<Integer, String> cityMap = new HashMap<>();
-		List<City> stateList = cityRepo.findByStateID(stateID);
-		stateList.forEach(c -> cityMap.put(c.getCityID(), c.getCityName()));
-		return cityMap;
+	public Map<Integer, String> getCities() {
+		HashMap<Integer, String> cityateMapityMap = new HashMap<>();
+		List<City> cityList = cityRepo.findAll();
+	    cityList.forEach(c -> cityateMapityMap.put(c.getCityID(), c.getCityName()));
+		return cityateMapityMap;
 	}
+	
+	
+
+	/*
+	 * @Override public Map<Integer, String> getStates(Integer countryID) {
+	 * HashMap<Integer, String> stateMap = new HashMap<>(); List<State> stateList =
+	 * stateRepo.findByCountryID(countryID); stateList.forEach(s ->
+	 * stateMap.put(s.getStateID(), s.getStateName())); return stateMap; }
+	 * 
+	 * @Override public Map<Integer, String> getCity(Integer stateID) {
+	 * HashMap<Integer, String> cityMap = new HashMap<>(); List<City> stateList =
+	 * cityRepo.findByStateID(stateID); stateList.forEach(c ->
+	 * cityMap.put(c.getCityID(), c.getCityName())); return cityMap; }
+	 */
 
 	@Override
 	public User getUser(String email) {
@@ -89,7 +105,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	private String generateRandonPwd() {
-		char[] possibleCharacters = (new String("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@")).toCharArray();
+		char[] possibleCharacters = (new String("abcdefghijklmnopqrstuvwxyz0123456789@")).toCharArray();
 		return RandomStringUtils.random( 6, 0, possibleCharacters.length-1, false, false, possibleCharacters, new SecureRandom() );
 		
 	}
