@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "app.messages.invalid-login",
+    "type": "java.lang.String",
+    "description": "A description for 'app.messages.invalid-login'"
+  },
+  {
+    "name": "app.messages.invalidPwd",
+    "type": "java.lang.String",
+    "description": "A description for 'app.messages.invalidPwd'"
+  },
+  {
+    "name": "app.messages.pwdUpdateFaild",
+    "type": "java.lang.String",
+    "description": "A description for 'app.messages.pwdUpdateFaild'"
+  },
+  {
+    "name": "app.messages.regFailuer",
+    "type": "java.lang.String",
+    "description": "A description for 'app.messages.regFailuer'"
+  },
+  {
+    "name": "app.messages.regSuccess",
+    "type": "java.lang.String",
+    "description": "A description for 'app.messages.regSuccess'"
+  }
+]}

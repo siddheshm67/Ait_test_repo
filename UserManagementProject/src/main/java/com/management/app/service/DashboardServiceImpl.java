@@ -1,22 +1,26 @@
 package com.management.app.service;
 
-import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.management.app.Bindings.Quote;
-import com.management.app.Bindings.QuotesApiResponse;
+import com.management.app.props.AppProps;
 
 @Service
 public class DashboardServiceImpl implements DashboardService {
+	
+	@Autowired
+	AppProps appProps;
+	
+	Random random = new Random();
 
-	private String url = "https://type.fit/api/quotes";
+	private String url = appProps.getMessages().get("quouteURL");
 	
 	Quote[] quotes = null;
 	
@@ -30,19 +34,20 @@ public class DashboardServiceImpl implements DashboardService {
 			ObjectMapper objectMapper = new ObjectMapper();
 			try {
 				 quotes = objectMapper.readValue(body, Quote[].class);
-			} catch (JsonMappingException e) {
-				// TODO Auto-generated catch block
+			} catch (Exception e) {
 				e.printStackTrace();
-			} catch (JsonProcessingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} 
 			
 		}
 		
-		Random random = new Random();
-		int num = random.nextInt(quotes.length-1);
-		return quotes[num].getText();
+		int num = 0 ;
+		String text = null;
+		if (Objects.nonNull(quotes)) {
+			num = random.nextInt(quotes.length-1);
+			text = quotes[num].getText();
+		}
+		
+		return text;
 		
 	}
 

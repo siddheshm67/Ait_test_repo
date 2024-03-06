@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/user_management_db
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+  mail:
+    host: smtp.gmail.com
+    password: "strk fztz sveb xipx\t"
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    username: siddheshmadiwale@gmail.com
+    
+app:
+  messages:
+    invalidLogin: invalid credentials
+    invalidPwd: both password should match
+    pwdUpdateFaild: password updation failed
+    regFailuer: registraction faild
+    regSuccess: registraction successful please check mail  
+    quouteURL: https://type.fit/api/quotes  

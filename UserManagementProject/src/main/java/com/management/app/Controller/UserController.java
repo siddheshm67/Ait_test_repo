@@ -16,6 +16,7 @@ import com.management.app.Bindings.RegisterForm;
 import com.management.app.Bindings.ResetPwdForm;
 import com.management.app.Entity.User;
 import com.management.app.Repo.CountryRepo;
+import com.management.app.props.AppProps;
 import com.management.app.service.UserService;
 
 @Controller
@@ -24,7 +25,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	private CountryRepo countryRepo;
+	@Autowired
+	private AppProps appProps;
+	
 
 	@GetMapping("/")
 	public String index(Model model) {
@@ -36,7 +39,7 @@ public class UserController {
 	public String loginCheck(@ModelAttribute("loginform") LoginForm loginForm, Model model) {
 		User user = userService.loginUSer(loginForm);
 		if (user == null) {
-			model.addAttribute("errmsg", "invalid credentials");
+			model.addAttribute("errmsg", appProps.getMessages().get("invalidLogin"));
 			return "index";
 		}
 
@@ -54,7 +57,7 @@ public class UserController {
 	public String resetPwd(@ModelAttribute("resetPwd") ResetPwdForm resetPwdForm, Model model) {
 
 		if (!resetPwdForm.getPwd().equals(resetPwdForm.getConfirmPwd())) {
-			model.addAttribute("errmsg", "both password should match");
+			model.addAttribute("errmsg", appProps.getMessages().get("invalidPwd"));
 			return "resetPwd";
 		}
 
@@ -63,7 +66,7 @@ public class UserController {
 			return "redirect:dasboard";
 		}
 
-		model.addAttribute("errmsg", "ERROR !!!");
+		model.addAttribute("errmsg", appProps.getMessages().get("pwdUpdateFaild"));
 		return "resetPwd";
 
 	}
@@ -99,12 +102,13 @@ public class UserController {
 
 	@PostMapping("/registeruser")
 	public String userRegister(@ModelAttribute("registerForm") RegisterForm registerForm, Model model) {
-	
+
+		
 		boolean user = userService.saveUser(registerForm);
 		if (user) {
-			model.addAttribute("sucmsg", "registration successful,please check mail");
+			model.addAttribute("sucmsg", appProps.getMessages().get("invalidLogin"));
 		}else {
-			model.addAttribute("errmsg", "registraction faild");
+			model.addAttribute("errmsg", appProps.getMessages().get("regFailuer"));
 		}
 		
 		model.addAttribute("registerForm", new RegisterForm());
