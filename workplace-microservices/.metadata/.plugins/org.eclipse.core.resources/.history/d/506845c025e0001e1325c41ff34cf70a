@@ -1,0 +1,49 @@
+package com.ssn.api.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class DataService {
+	
+	public boolean getSsnState(String ssn) {
+		
+		String firstDigit = ssn.substring(1);
+		String stateName;
+		
+		switch(firstDigit) {
+		  case "1":
+			  stateName = "california";
+		    break;
+		  case "2":
+			  stateName = "utah";
+		    break;
+		  case "3":
+			  stateName = "washington"; 
+			    break;
+		  case "4":
+			  stateName = "idaho"; 
+			    break;
+		  case "5":
+			  stateName = "nebraska";
+			    break;
+		  case "6":
+			  stateName = "";  
+			    break;
+		  case "7":
+			  stateName = "";
+			    break;
+		  case "8":
+			  stateName = "";  
+			    break;
+		  case "9":
+			  stateName = "";
+			    break;
+			    
+		  default:
+			 stateName = "INVALID";
+		}
+		
+		return true;
+	}
+
+}

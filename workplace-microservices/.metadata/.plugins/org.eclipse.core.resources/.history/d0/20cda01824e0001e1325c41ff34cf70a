@@ -1,0 +1,9 @@
+package com.ssn.api.entity;
+
+public class DataEntity {
+	
+	private String ssnNumber;
+	private String name;
+	private String 
+
+}

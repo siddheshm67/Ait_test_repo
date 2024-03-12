@@ -1,0 +1,17 @@
+server:
+  port: 1111
+  
+spring:
+  application:
+    name: WELCOME_API
+    
+ 
+spring:
+    
+managemnet:
+  endpoints:
+    web:
+      exposure:
+        include:'*'
+      
+      

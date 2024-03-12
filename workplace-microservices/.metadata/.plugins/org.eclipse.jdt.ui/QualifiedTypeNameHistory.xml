@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"/>
+    <fullyQualifiedTypeName name="de.codecentric.boot.admin.server.config.EnableAdminServer"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.openfeign.EnableFeignClients"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.openfeign.FeignClient"/>
+    <fullyQualifiedTypeName name="com.demo.WelcomeApiClient"/>
+    <fullyQualifiedTypeName name="org.springframework.core.env.Environment"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.client.discovery.EnableDiscoveryClient"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.gateway.filter.GlobalFilter"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.config.server.EnableConfigServer"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="com.ssn.api.service.DataService"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.ssn.api.entity.DataEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="com.ssn.api.entity.CitizenInfo"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+</qualifiedTypeNameHistroy>

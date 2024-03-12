@@ -1,0 +1,29 @@
+package com.demo;
+
+import java.util.Set;
+
+import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.web.server.ServerWebExchange;
+
+import reactor.core.publisher.Mono;
+
+public class RequestFilter implements GlobalFilter {
+
+	@Override
+	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+
+		System.out.println("request filter method called .... ");
+		
+		ServerHttpRequest request = exchange.getRequest();
+		HttpHeaders headers = request.getHeaders();
+		Set<String> keySet = headers.keySet();
+		keySet.forEach(key-> {
+			headers.get(key);
+			
+		});
+		return null;
+	}
+}

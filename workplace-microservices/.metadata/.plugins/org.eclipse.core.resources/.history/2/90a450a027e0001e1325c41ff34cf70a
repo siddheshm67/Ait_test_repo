@@ -1,0 +1,11 @@
+package com.ssn.api.entity;
+
+public class CitizenInfo {
+	
+	private String ssnNumber;
+	private String ;
+	
+	
+	
+	
+}

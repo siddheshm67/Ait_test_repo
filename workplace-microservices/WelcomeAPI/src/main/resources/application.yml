@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: WELCOME-API
+    
+ 
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090/
+    
+managemnet:
+  endpoints:
+    web:
+      exposure:
+        include:'*'
+      
+      

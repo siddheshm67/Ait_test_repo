@@ -1,0 +1,13 @@
+package com.ssn.api.entity;
+
+import java.time.LocalDate;
+
+public class DataEntity {
+	
+	private String ssnNumber;
+	private String name;
+	private LocalDate dob;
+	
+	
+
+}

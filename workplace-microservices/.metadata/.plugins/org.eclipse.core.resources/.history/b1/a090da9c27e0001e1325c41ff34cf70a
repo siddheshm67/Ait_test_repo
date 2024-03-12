@@ -1,0 +1,22 @@
+package com.ssn.api.entity;
+
+public class CitizenInfo {
+	
+	private String ssnNumber;
+	private String name;
+	
+	public String getSsnNumber() {
+		return ssnNumber;
+	}
+	public void setSsnNumber(String ssnNumber) {
+		this.ssnNumber = ssnNumber;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+}

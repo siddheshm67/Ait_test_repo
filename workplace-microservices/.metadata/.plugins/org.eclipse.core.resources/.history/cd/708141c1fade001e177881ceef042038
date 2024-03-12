@@ -1,0 +1,18 @@
+package com.demo;
+
+import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.web.server.ServerWebExchange;
+
+import reactor.core.publisher.Mono;
+
+public class RequestFilter implements GlobalFilter {
+
+	@Override
+	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+
+		System.out.println("request filter method called .... ");
+
+		return null;
+	}
+}

@@ -1,0 +1,12 @@
+server:
+  port: 2222
+  
+spring:
+  application:
+    name: GREET-API
+
+managment:
+  endpoints:
+    web:
+      exposure:
+        include:     
