@@ -1,0 +1,20 @@
+package com.hsa.main.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "PLAN_MASTER")
+public class PlanEntity {
+	
+	
+	private Integer planId;
+	private String planName;
+	private String planStatuString;
+	private String startDate;
+	private String endDate;
+	
+	
+	
+	
+}

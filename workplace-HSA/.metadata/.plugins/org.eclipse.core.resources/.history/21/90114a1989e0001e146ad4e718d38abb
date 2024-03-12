@@ -1,0 +1,2 @@
+spring.application.name=HSA-Service-Registery
+server.port=8761

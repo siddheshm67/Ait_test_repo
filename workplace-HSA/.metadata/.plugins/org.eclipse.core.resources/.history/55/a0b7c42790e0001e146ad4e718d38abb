@@ -1,0 +1,14 @@
+package com.hsa.main.service;
+
+import java.util.List;
+
+import com.hsa.main.entity.PlanEntity;
+
+public interface PlanService {
+	
+	public List<PlanEntity> getAllPlans();
+	public PlanEntity createNewPlan(PlanEntity planEntity);
+	
+	
+
+}

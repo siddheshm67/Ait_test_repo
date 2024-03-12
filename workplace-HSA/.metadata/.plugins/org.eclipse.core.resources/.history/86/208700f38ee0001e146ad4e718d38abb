@@ -1,0 +1,5 @@
+package com.hsa.main.entity;
+
+public class PlanEntity {
+
+}

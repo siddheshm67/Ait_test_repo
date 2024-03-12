@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: HSA-PLAN-API
+    
+    
+  
+server:
+  port: 8081

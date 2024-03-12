@@ -1,0 +1,10 @@
+package com.hsa.main.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "P")
+public class PlanEntity {
+
+}

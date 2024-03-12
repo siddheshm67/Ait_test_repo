@@ -1,0 +1,5 @@
+package com.hsa.main.Repo;
+
+public interface PlanService {
+
+}

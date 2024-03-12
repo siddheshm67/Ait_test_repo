@@ -1,0 +1,4 @@
+spring.application.name=SSA-API
+spring.security.user.name=ssnapp
+spring.security.user.password=123321
+

@@ -1,0 +1,4 @@
+spring.application.name=SSA-API
+spring.security.user.name=
+spring.security.user.password=
+

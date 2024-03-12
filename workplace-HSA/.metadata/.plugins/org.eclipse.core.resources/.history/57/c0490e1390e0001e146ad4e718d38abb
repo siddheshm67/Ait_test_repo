@@ -1,0 +1,10 @@
+package com.hsa.main.service;
+
+import com.hsa.main.entity.PlanEntity;
+
+public interface PlanService {
+	
+	public PlanEntity createNewPlan(PlanEntity planEntity);
+	
+
+}

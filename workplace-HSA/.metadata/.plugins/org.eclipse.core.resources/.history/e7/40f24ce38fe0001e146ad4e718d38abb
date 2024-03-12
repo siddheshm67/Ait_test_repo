@@ -1,0 +1,5 @@
+package com.hsa.main.service;
+
+public interface PlanService {
+
+}

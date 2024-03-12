@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: HSA-Config-Server-1
