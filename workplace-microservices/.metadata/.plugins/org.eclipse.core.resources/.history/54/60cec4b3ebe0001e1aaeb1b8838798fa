@@ -1,0 +1,22 @@
+package com.demo.config;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class RedisConfig {
+	
+	@Bean
+	public JedisConnectionFactory jedisConnectionFactory() {
+
+		RedisStandaloneConfiguration serverConfig = 
+				new RedisStandaloneConfiguration(url, port);
+
+		serverConfig.setUsername(username);
+		serverConfig.setPassword(pwd);
+
+		JedisClientConfiguration clientConfig = JedisClientConfiguration.builder().build();
+
+		return new JedisConnectionFactory(serverConfig, clientConfig);
+	}
+
+}

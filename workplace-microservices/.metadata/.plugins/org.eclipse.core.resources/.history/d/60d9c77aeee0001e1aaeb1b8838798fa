@@ -1,0 +1,2 @@
+spring.application.name=Redis_DB_APP
+spring.data.redis.url=

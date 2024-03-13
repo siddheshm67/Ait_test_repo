@@ -1,0 +1,5 @@
+spring.application.name=Redis-DB-APP
+spring.data.redis.url=redis-15649.c301.ap-south-1-1.ec2.cloud.redislabs.com
+spring.data.redis.port=15649
+spring.data.redis.username=default
+spring.data.redis.password=f9LvegomsfpIPmSSjUtLfVldDMfGt955
