@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: Security_LOGIN_DEMO_APP
+    
+  datasource:
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/security_test_db
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+    
+    
+    
