@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: CircuitBraker-App
+    
+    
+management:
+   endpoint.web.exposure.include: 
+    -'*'
+   endpoint.health.show-details: always
+   health.circuitbreakers.enabled: true
+      
+      
+resilience4j:
+  circuitbreaker:
+    configs:
+      defaults
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED   

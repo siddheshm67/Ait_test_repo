@@ -1,0 +1,24 @@
+package com.demo;
+
+import org.apache.logging.log4j.util.IndexedReadOnlyStringMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoRestController {
+
+	@GetMapping("/")
+	public String getMsgFromRedis() {
+		System.out.println("redis method called");
+		int i = 0/10;
+		
+		return "msg from redis";
+	}
+	
+	
+
+	public String fallbackDbLogic(Throwable t) {
+		System.out.println("DB method called");
+		return "msg from main db";
+	}
+}

@@ -1,0 +1,15 @@
+package com.demo;
+
+import org.apache.logging.log4j.util.IndexedReadOnlyStringMap;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoRestController {
+
+	public String getMsgFromRedis() {
+		
+		IndexedRe
+		
+		return "msg from redis";
+	}
+}
