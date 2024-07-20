@@ -1,0 +1,16 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: HSA_DATA_COLLECTION_API
+    
+  datasource:
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/hsa_db
+    username: root
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

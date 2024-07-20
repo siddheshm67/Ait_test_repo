@@ -1,0 +1,26 @@
+SSAWebApiUrl: 'http://localhost:1001/ssa'
+
+server:
+  port: 8082
+
+spring:
+  application:
+    name: HSA-Application-Registraction-Api
+    
+  datasource:
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/hsa_db
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+   
+managemnet:
+  endpoints:
+    web:
+      exposure:
+        include:'*'
+    
+    

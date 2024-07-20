@@ -1,0 +1,20 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: HSA-EligibilityDetermination-API
+    
+  datasource:
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/hsa_db
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+managemnet:
+  endpoints:
+    web:
+      exposure:
+        include:'*'  

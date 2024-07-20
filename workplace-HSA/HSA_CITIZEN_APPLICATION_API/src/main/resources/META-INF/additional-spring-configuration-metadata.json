@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "managemnet.endpoints.web.exposure",
+    "type": "java.lang.String",
+    "description": "A description for 'managemnet.endpoints.web.exposure'"
+  },
+  {
+    "name": "ssaurl",
+    "type": "java.lang.String",
+    "description": "A description for 'ssaurl'"
+  }
+]}
