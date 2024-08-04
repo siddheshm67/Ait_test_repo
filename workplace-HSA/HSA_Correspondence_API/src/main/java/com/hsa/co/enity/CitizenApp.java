@@ -1,4 +1,4 @@
-package com.hsa.AppRegister.Entity;
+package com.hsa.co.enity;
 
 import java.time.LocalDate;
 
@@ -10,11 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
 public class CitizenApp {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer AppNum;
 	private String name;
 	private LocalDate dob;

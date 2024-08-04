@@ -1,30 +1,88 @@
+import java.security.KeyStore.Entry;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class DemoUSer {
 
 	public static void main(String[] args) {
-	
-		List< Kid>kids = new ArrayList<>();
+
+String string = "aaaabbbccd";
 		
-		kids.add(new Kid("a", 10));
-		kids.add(new Kid("b", 12));
-		kids.add(new Kid("c", 14));
-		kids.add(new Kid("d", 16));
+		String[] arrstr = string.split("");
 		
-		boolean isMatched = kids.stream().allMatch(e->e.getAge()<16);
+		Map<String, Integer> hMap = new HashMap<>();
+		for (String word : arrstr) {
+			if (hMap.get(word) == null) {
+				hMap.put(word, 1);
+			}else {
+				hMap.put(word, hMap.get(word)+1);
+			}
+		}
 		
-		System.out.println(isMatched);
+
+		Map<Integer, String> map = new TreeMap<>();
+		
+		//convert map to treemap
+		hMap.forEach((e1,e2)->map.put(e2, e1));
+		
+		System.out.println(map);
+		
+		//find higest/lowest occuerence 
+				java.util.Map.Entry<Integer, String> entry = map.entrySet()
+				.stream()
+			.sorted((e1,e2)-> -e1.getKey().compareTo(e2.getKey()))
+				.skip(0)
+				.findFirst().get();
+		
+		//create new arraylist to store result element
+		List<String> l2= new ArrayList<>(); 
+		
+		for (String string2 : arrstr) {
+			l2.add(string2);
+		}
+		
+Set<String> set = l2.stream()
+		.filter(e->Collections.frequency(l2, e)==entry.getKey())
+			.collect(Collectors.toSet());
+			
+		System.out.println(set);
+
 		
 		
 		
 		
 		
 		
+		
+		
+		
+		
+
 	}
 }
 
-class Kid{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Kid {
 	private String kidName;
 	private Integer age;
 

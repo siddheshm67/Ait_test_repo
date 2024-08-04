@@ -49,9 +49,9 @@ public class ElegibilityServiceImpl implements ElegibilityService {
 	}
 
 	@Override
-	public List<AppEligibilityInfo> getEligibilityInfoByApp(Integer appNum) {
-		// TODO Auto-generated method stub
-		return null;
+	public AppEligibilityInfo getEligibilityInfoByApp(Integer appNum) {
+		AppEligibilityInfo appEligibilityInfo = eInfoRepo.findByAppNum(appNum);
+		return appEligibilityInfo;
 	}
 
 	private AppEligibilityInfo checkElegibilityForPlan(Integer appNum, UserData userData,

@@ -24,5 +24,12 @@ public class EdRestController {
 		return new ResponseEntity<AppEligibilityInfo>(appEligibilityInfo, HttpStatus.OK);
 
 	}
+	
+	@GetMapping("/elegInfo/{appNum}")
+	public ResponseEntity<AppEligibilityInfo> getAppEgInfoByAppNum(@PathVariable ("appNum") Integer appNum) {
+		AppEligibilityInfo appEligibilityInfo = elegibilityService.getEligibilityInfoByApp(appNum);
+		
+		return new ResponseEntity<AppEligibilityInfo>(appEligibilityInfo, HttpStatus.OK);
+	}
 
 }
