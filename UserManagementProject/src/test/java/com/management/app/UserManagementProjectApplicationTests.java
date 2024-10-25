@@ -8,6 +8,7 @@ class UserManagementProjectApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//some test case
 	}
 
 }
