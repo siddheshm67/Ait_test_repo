@@ -18,6 +18,7 @@ public class EmailUtil {
 		boolean mailSent = false;
 		try {
 			MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+			//some chnages here also
 			MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
 			mimeMessageHelper.setTo(email);
 			mimeMessageHelper.setSubject(subject);
