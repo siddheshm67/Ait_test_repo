@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,11 +46,14 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	EmailUtil emailUtil;
 
+	Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
 	@Override
 	public Map<Integer, String> getCountries() {
 		HashMap<Integer, String> countryMap = new HashMap<>();
 		List<Country> countryList = countryRepo.findAll();
 	    countryList.forEach(c -> countryMap.put(c.getCountryID(), c.getCountryName()));
+		logger.info("added new line in getCountries");
 	    return countryMap;
 	}
 	
