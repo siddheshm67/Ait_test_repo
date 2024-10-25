@@ -51,8 +51,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Map<Integer, String> getCountries() {
 		HashMap<Integer, String> countryMap = new HashMap<>();
-		List<Country> countryList = countryRepo.findAll();
-	    countryList.forEach(c -> countryMap.put(c.getCountryID(), c.getCountryName()));
+		List<Country> cuntList = countryRepo.findAll();
+	    cuntList.forEach(c -> countryMap.put(c.getCountryID(), c.getCountryName()));
 		logger.info("added new line in getCountries");
 	    return countryMap;
 	}
@@ -61,6 +61,7 @@ public class UserServiceImpl implements UserService {
 	public Map<Integer, String> getStates() {
 		HashMap<Integer, String> stateMap = new HashMap<>();
 		List<State> stateList = stateRepo.findAll();
+		logger.info("added new line in getStates");
 	    stateList.forEach(c -> stateMap.put(c.getStateID(), c.getStateName()));
 		return stateMap;
 	}
