@@ -19,6 +19,9 @@ public class EmailUtil {
 		try {
 			MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 			//some chnages here also
+			//my new chnages here
+			//and here also
+			//and here also again
 			MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
 			mimeMessageHelper.setTo(email);
 			mimeMessageHelper.setSubject(subject);
@@ -28,6 +31,7 @@ public class EmailUtil {
 		} catch (Exception e) {
 			e.getMessage();
 		}
+		//here also some of the changes
 		return mailSent;
 	}
 
