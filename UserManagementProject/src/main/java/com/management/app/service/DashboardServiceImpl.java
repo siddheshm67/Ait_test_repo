@@ -28,9 +28,10 @@ public class DashboardServiceImpl implements DashboardService {
 
 		if (quotes == null) {
 			RestTemplate restTemplate = new RestTemplate();
+			//some changes here also
 			ResponseEntity<String> forEnity = restTemplate.getForEntity(url,String.class);
 			String body = forEnity.getBody();
-			
+			//added some changes
 			ObjectMapper objectMapper = new ObjectMapper();
 			try {
 				 quotes = objectMapper.readValue(body, Quote[].class);
