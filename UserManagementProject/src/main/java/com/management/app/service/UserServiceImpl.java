@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Map<Integer, String> getCountries() {
 		HashMap<Integer, String> countryMap = new HashMap<>();
-		List<Country> countryList = countryRepo.findAll();
+		List<Country> countiesList = countryRepo.findAll();
 	    countryList.forEach(c -> countryMap.put(c.getCountryID(), c.getCountryName()));
 		logger.info("added new line in getCountries");
 	    return countryMap;
