@@ -18,7 +18,8 @@ public class DashboardController {
 	@GetMapping("/dasboard")
 	public String buildDashboard(Model model) {
 		String quote = dashboardService.getQuotes();
-		//add some changes 
+		//add some changes
+		//something other
 		model.addAttribute("quote",quote);
 		return "dashboard";
 	}
