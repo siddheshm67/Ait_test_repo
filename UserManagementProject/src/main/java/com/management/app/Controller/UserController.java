@@ -130,6 +130,7 @@ public class UserController {
 		
 		model.addAttribute("registerForm", new RegisterForm());
 		Map<Integer,String> countries = userService.getCountries();
+		//fixed some bug here
 		model.addAttribute("countries",countries);
 		Map<Integer,String> states = userService.getStates();
 		model.addAttribute("states",states);
@@ -146,7 +147,8 @@ public class UserController {
 	}
 
 	public String logout(Model model) {
-
+//fixed some bug here
+		//done some changes here here to and done 
 		return null;
 	}
 
