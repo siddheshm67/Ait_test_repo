@@ -135,6 +135,7 @@ public class UserController {
 		Map<Integer,String> states = userService.getStates();
 		model.addAttribute("states",states);
 		Map<Integer,String> cities = userService.getCities();
+		//work done at 20:18
 		model.addAttribute("cities",cities);
 		
 		
