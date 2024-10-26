@@ -86,8 +86,6 @@ public class UserController {
 	 * loadCities(@RequestParam("stateID") Integer sid) {
 	 * 
 	 * return userService.getStates(sid); }
-	 */
-	/*
 	 * @ResponseBody
 	 *
 	 * @GetMapping("/states") public Map<Integer, String>
@@ -113,6 +111,9 @@ public class UserController {
 		model.addAttribute("states",states);
 		Map<Integer,String> cities = userService.getCities();
 		model.addAttribute("cities",cities);
+		///new lines of code
+		//here also
+		//added
 		return "register";
 	}
 
