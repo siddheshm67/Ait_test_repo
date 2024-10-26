@@ -147,8 +147,9 @@ public class UserController {
 	}
 
 	public String logout(Model model) {
-//fixed some bug here
-		//done some changes here here to and done 
+	//fixed some bug here
+		//done some changes here here to and done
+    //come from bugfix and done some changes for feature branch
 		return null;
 	}
 
