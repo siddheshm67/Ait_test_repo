@@ -87,6 +87,8 @@ public class UserController {
 	 * 
 	 * return userService.getStates(sid); }
 	 */
+
+
 	
 	@GetMapping("/register")
 	public String register(Model model) {
@@ -97,6 +99,9 @@ public class UserController {
 		model.addAttribute("states",states);
 		Map<Integer,String> cities = userService.getCities();
 		model.addAttribute("cities",cities);
+		///new lines of code
+		//here also
+		//added
 		return "register";
 	}
 
