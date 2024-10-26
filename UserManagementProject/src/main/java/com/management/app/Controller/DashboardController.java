@@ -20,6 +20,7 @@ public class DashboardController {
 		String quote = dashboardService.getQuotes();
 		//add some changes
 		//something other
+		//add from remote changes
 		model.addAttribute("quote",quote);
 		return "dashboard";
 	}
