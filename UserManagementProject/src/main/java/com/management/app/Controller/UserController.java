@@ -86,9 +86,21 @@ public class UserController {
 	 * loadCities(@RequestParam("stateID") Integer sid) {
 	 * 
 	 * return userService.getStates(sid); }
+	 * @ResponseBody
+	 *
+	 * @GetMapping("/states") public Map<Integer, String>
+	 * loadStates(@RequestParam("countryID") Integer cid) {
+	 *
+	 * return userService.getStates(cid); }
+	 *
+	 *some new code lines added
+	 * @ResponseBody
+	 *
+	 * @GetMapping("/cities") public Map<Integer, String>
+	 * loadCities(@RequestParam("stateID") Integer sid) {
+	 *
+	 * return userService.getStates(sid); }
 	 */
-
-
 	
 	@GetMapping("/register")
 	public String register(Model model) {
